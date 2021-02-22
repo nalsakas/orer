@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+
+svg {
+    display: block;
+    border: 1px solid grey;
+    margin: 50px auto;
+}
+
+/*
+svg {
+    border: 1px solid grey;
+    width: 800px;
+    height: 1200px;
+}
+
+@media(max-width: 800px) {
+    svg {
+        width: 400px;
+        height: 600px;
+    }
+}
+*/
+
+/*
+path {
+    fill: 'none';
+    stroke: 'red';
+    stroke-width: 3px;
+}
+*/
