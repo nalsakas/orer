@@ -65,75 +65,75 @@ const lineData = [{
     stations: [{
             stationId: "Mersin",
             km: 0,
-            offset: 3
+            offset: 0
         },
         {
             stationId: "Km.3+500",
             km: 3500,
-            offset: 3
+            offset: 0
         },
         {
             stationId: "Tırmıl",
             km: 5954,
-            offset: 3
+            offset: 0
         },
         {
             stationId: "Karacailyas",
             km: 8290,
-            offset: 3
+            offset: 0
         },
         {
             stationId: "Taşkent",
             km: 14113,
-            offset: 3
+            offset: 0
         },
         {
             stationId: "Huzurkent",
             km: 19034,
-            offset: 3
+            offset: 0
         },
         {
             stationId: "Tarsus",
             km: 26222,
-            offset: 3
+            offset: 0
         },
         {
             stationId: "Km.41+516",
             km: 41516,
-            offset: 3
+            offset: -20
         },
         {
             stationId: "Yenice Müselles",
             km: 41537,
-            offset: 3
+            offset: 0
         },
         {
             stationId: "Yenice",
             km: 43209,
-            offset: 3
+            offset: 0
         },
         {
             stationId: "Zeytinli",
             km: 51121,
-            offset: 3
+            offset: 0
         },
         {
             stationId: "Şehitlik",
             km: 60244,
-            offset: 3
+            offset: 0
         },
         {
             stationId: "Şakirpaşa",
             km: 64313,
-            offset: 3
+            offset: 0
         },
         {
             stationId: "Adana",
             km: 67148,
-            offset: 3
-        },
+            offset: 0
+        }
     ]
-}, ]
+}]
 
 // orer tablosu
 const orerData = [{
@@ -271,22 +271,9 @@ const orerData = [{
             meets: "",
             overtakes: "",
             km: 0
-        },
-
-
-
-
-
-
-
-
-
-
-
-
-
+        }
     ]
-}, ]
+}]
 
 // Create svg element
 const margin = {
@@ -333,15 +320,15 @@ const groupLeftLineStationAltitude = svg.append('g').attr('class', 'leftLineStat
 const group = svg.append('g').attr('transform', `translate(${margin.left}, ${margin.top})`)
 
 // Create GridX
-const dataXLabels = d3.range(0, 24 * 60, 10)
-const scaleAxisX = d3.scaleLinear()
-    .domain(d3.extent(dataXLabels))
+const dataDomainX = d3.range(0, 24 * 60, 10)
+const scaleGridX = d3.scaleLinear()
+    .domain(d3.extent(dataDomainX))
     .range([0, width])
 
-const gridX = groupGridX.selectAll('line').data(dataXLabels)
+const gridX = groupGridX.selectAll('line').data(dataDomainX)
 gridX.enter().append('line')
-    .attr('x1', (d, i) => scaleAxisX(d))
-    .attr('x2', (d, i) => scaleAxisX(d))
+    .attr('x1', (d, i) => scaleGridX(d))
+    .attr('x2', (d, i) => scaleGridX(d))
     .attr('y1', 0)
     .attr('y2', height)
     .attr('stroke', 'red')
@@ -359,49 +346,43 @@ gridX.enter().append('line')
             return 0.5
         }
     })
-gridX
-    .attr('x1', (d, i) => scaleAxisX(d))
-    .attr('x2', (d, i) => scaleAxisX(d))
-    .attr('y1', 0)
-    .attr('y2', height)
 
 // Create GridY
 const gridY = groupGridY.selectAll('line').data(line.stations)
 gridY.enter().append('line')
     .attr('x1', -10)
     .attr('x2', width)
-    .attr('y1', (d, i) => scaleY(d.km))
-    .attr('y2', (d, i) => scaleY(d.km))
+    .attr('y1', (d, i) => {
+        return scaleY(d.km) + d.offset
+    })
+    .attr('y2', (d, i) => {
+        return scaleY(d.km) + d.offset
+    })
     .attr('stroke', 'red')
     .attr('stroke-width', 1)
-gridY
-    .attr('x1', -10)
-    .attr('x2', width)
-    .attr('y1', (d, i) => scaleY(d.km))
-    .attr('y2', (d, i) => scaleY(d.km))
 
 // Create Bottom Labels
-const bottomLabels = groupBottomLabel.selectAll('text').data(dataXLabels)
+const bottomLabels = groupBottomLabel.selectAll('text').data(dataDomainX)
 bottomLabels.enter().append('text')
     .text((d, i) => {
         if (d % 60 == 0) {
             return d / 60
         }
     })
-    .attr('x', d => scaleAxisX(d))
+    .attr('x', d => scaleGridX(d))
     .attr('y', height)
     .attr('dy', 25)
     .attr('dx', -5)
 
 // Create Top Labels
-const topLabels = groupTopLabel.selectAll('text').data(dataXLabels)
+const topLabels = groupTopLabel.selectAll('text').data(dataDomainX)
 bottomLabels.enter().append('text')
     .text((d, i) => {
         if (d % 60 == 0) {
             return d / 60
         }
     })
-    .attr('x', d => scaleAxisX(d))
+    .attr('x', d => scaleGridX(d))
     .attr('y', 0)
     .attr('dy', -15)
     .attr('dx', -5)
@@ -415,7 +396,7 @@ leftLineKms.enter().append('text')
     })
     .attr('x', 0)
     .attr('y', (d, i) => {
-        return scaleY(d.km)
+        return scaleY(d.km) + d.offset
     })
     .attr('dy', 5)
     .attr('dx', -15)
@@ -432,7 +413,7 @@ leftLineKmsBetween.enter().append('text')
     .attr('x', 0)
     .attr('y', (d, i) => {
         if (i !== line.stations.length - 1) {
-            return scaleY(d.km) + (scaleY(line.stations[i + 1].km) - scaleY(d.km)) / 2
+            return scaleY(d.km) + d.offset + (scaleY(line.stations[i + 1].km) - scaleY(d.km)) / 2
         }
     })
     .attr('dy', 5)
@@ -447,7 +428,7 @@ leftLineStations.enter().append('text')
     })
     .attr('x', 0)
     .attr('y', (d, i) => {
-        return scaleY(d.km)
+        return scaleY(d.km) + d.offset
     })
     .attr('dy', 5)
     .attr('dx', -135)
@@ -469,7 +450,7 @@ const scaleAltitudeY = d3.scaleLinear()
 
 const altitudeLineGenerator = d3.area()
     .x(d => {
-        return scaleAltitudeX(d.km)
+        return scaleAltitudeX(d.km) + d.offset
     })
     .y0(d => {
         return scaleAltitudeY(0)
@@ -491,8 +472,8 @@ line.stations.forEach((ls, i, arr) => {
     if (i == 0 && i == arr.length) {
         return
     }
-    altitudePath.moveTo(scaleAltitudeX(ls.km), scaleAltitudeY(0))
-    altitudePath.lineTo(scaleAltitudeX(ls.km), scaleAltitudeY(stationData.find(s => s.id == ls.stationId).altitude))
+    altitudePath.moveTo(scaleAltitudeX(ls.km) + ls.offset, scaleAltitudeY(0))
+    altitudePath.lineTo(scaleAltitudeX(ls.km) + ls.offset, scaleAltitudeY(stationData.find(s => s.id == ls.stationId).altitude))
 })
 groupLeftLineStationAltitude
     .append('path')
@@ -504,7 +485,7 @@ groupLeftLineStationAltitude
 groupLeftLineStationAltitude.selectAll('text').data(line.stations)
     .enter().append('text')
     .attr('x', d => {
-        return scaleAltitudeX(d.km)
+        return scaleAltitudeX(d.km) + d.offset
     })
     .attr('y', d => {
         return scaleAltitudeY(0)
@@ -528,7 +509,7 @@ lines.enter().append('path')
     .attr('fill', 'none')
     .attr('stroke', 'black')
     .attr('stroke-width', 3)
-    .attr('stroke-linebutt', 'round')
+    .attr('stroke-linecap', 'butt')
     .attr('stroke-linejoin', 'round')
 lines.attr('d', generate)
 
@@ -546,30 +527,42 @@ function generate(d, i) {
 
         if (i == 0) {
             if (d.stations[i].arrival !== '') {
-                let arrival = d.stations[i].arrival.split(':')
-                let x = scaleX(new Date(2000, 0, 1, +arrival[0], +arrival[1]))
-                let y = scaleY(d.stations[i].km)
-                path.moveTo(x, y)
+                let lineStation = line.stations.find(s => s.stationId == d.stations[i].stationId)
+                if (lineStation) {
+                    let arrival = d.stations[i].arrival.split(':')
+                    let x = scaleX(new Date(2000, 0, 1, +arrival[0], +arrival[1]))
+                    let y = scaleY(d.stations[i].km) + lineStation.offset
+                    path.moveTo(x, y)
+                }
             } else if (d.stations[i].departure !== '') {
-                let departure = d.stations[i].departure.split(':')
-                let x = scaleX(new Date(2000, 0, 1, +departure[0], +departure[1]))
-                let y = scaleY(d.stations[i].km)
-                path.moveTo(x, y)
+                let lineStation = line.stations.find(s => s.stationId == d.stations[i].stationId)
+                if (lineStation) {
+                    let departure = d.stations[i].departure.split(':')
+                    let x = scaleX(new Date(2000, 0, 1, +departure[0], +departure[1]))
+                    let y = scaleY(d.stations[i].km) + lineStation.offset
+                    path.moveTo(x, y)
+                }
             }
         }
 
         if (d.stations[i].arrival !== '') {
-            let arrival = d.stations[i].arrival.split(':')
-            let x = scaleX(new Date(2000, 0, 1, +arrival[0], +arrival[1]))
-            let y = scaleY(d.stations[i].km)
-            path.lineTo(x, y)
+            let lineStation = line.stations.find(s => s.stationId == d.stations[i].stationId)
+            if (lineStation) {
+                let arrival = d.stations[i].arrival.split(':')
+                let x = scaleX(new Date(2000, 0, 1, +arrival[0], +arrival[1]))
+                let y = scaleY(d.stations[i].km) + lineStation.offset
+                path.lineTo(x, y)
+            }
         }
 
         if (d.stations[i].departure !== '') {
-            let departure = d.stations[i].departure.split(':')
-            let x = scaleX(new Date(2000, 0, 1, +departure[0], +departure[1]))
-            let y = scaleY(d.stations[i].km)
-            path.lineTo(x, y)
+            let lineStation = line.stations.find(s => s.stationId == d.stations[i].stationId)
+            if (lineStation) {
+                let departure = d.stations[i].departure.split(':')
+                let x = scaleX(new Date(2000, 0, 1, +departure[0], +departure[1]))
+                let y = scaleY(d.stations[i].km) + lineStation.offset
+                path.lineTo(x, y)
+            }
         }
     }
     return path
