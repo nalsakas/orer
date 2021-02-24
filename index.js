@@ -289,6 +289,12 @@ const totalHeight = totalWidth * proportion
 const width = totalWidth - margin.left - margin.right
 const height = totalHeight - margin.top - margin.bottom
 
+const altitudeLeftPos = 90
+const lineStationSchemaLeftPos = 100
+const lineStationsLeftPos = 230
+const lineKmBetweenLeftPos = 300
+const lineKmLeftPos = 370
+
 const line = lineData.find(l => l.id == "Mersin Adana")
 
 const scaleX = d3.scaleTime()
@@ -312,11 +318,11 @@ const groupTopLabel = svg.append('g').attr('class', 'topLabel').attr('transform'
 const groupBottomLabel = svg.append('g').attr('class', 'bottomLabel').attr('transform', `translate(${margin.left}, ${margin.top})`)
 const groupRightLabel = svg.append('g').attr('class', 'rightLabel').attr('transform', `translate(${margin.left}, ${margin.top})`)
 const groupLeftLabel = svg.append('g').attr('class', 'rightLabel').attr('transform', `translate(${margin.left}, ${margin.top})`)
-const groupLeftLineKm = svg.append('g').attr('class', 'leftLineKm').attr('transform', `translate(${margin.left}, ${margin.top})`)
-const groupLeftLineKmBetween = svg.append('g').attr('class', 'leftLineKmBetween').attr('transform', `translate(${margin.left}, ${margin.top})`)
-const groupLeftLineStation = svg.append('g').attr('class', 'leftLineStation').attr('transform', `translate(${margin.left}, ${margin.top})`)
-const groupLeftLineStationSchema = svg.append('g').attr('class', 'leftLineStationSchema').attr('transform', `translate(${margin.left}, ${margin.top})`)
-const groupLeftLineStationAltitude = svg.append('g').attr('class', 'leftLineStationAltitude').attr('transform', `translate(${margin.left -300}, ${margin.top}) rotate(90)`)
+const groupLeftLineKm = svg.append('g').attr('class', 'leftLineKm').attr('transform', `translate(${lineKmLeftPos}, ${margin.top})`)
+const groupLeftLineKmBetween = svg.append('g').attr('class', 'leftLineKmBetween').attr('transform', `translate(${lineKmBetweenLeftPos}, ${margin.top})`)
+const groupLeftLineStation = svg.append('g').attr('class', 'leftLineStation').attr('transform', `translate(${lineStationsLeftPos}, ${margin.top})`)
+const groupLeftLineStationSchema = svg.append('g').attr('class', 'leftLineStationSchema').attr('transform', `translate(${lineStationSchemaLeftPos}, ${margin.top})`)
+const groupLeftLineStationAltitude = svg.append('g').attr('class', 'leftLineStationAltitude').attr('transform', `translate(${altitudeLeftPos}, ${margin.top}) rotate(90)`)
 const group = svg.append('g').attr('transform', `translate(${margin.left}, ${margin.top})`)
 
 // Create GridX
@@ -399,7 +405,7 @@ leftLineKms.enter().append('text')
         return scaleY(d.km) + d.offset
     })
     .attr('dy', 5)
-    .attr('dx', -15)
+    .attr('dx', 0)
 
 // Create Left Line kms between
 const leftLineKmsBetween = groupLeftLineKmBetween.selectAll('text').data(line.stations)
@@ -417,7 +423,7 @@ leftLineKmsBetween.enter().append('text')
         }
     })
     .attr('dy', 5)
-    .attr('dx', -75)
+    .attr('dx', 0)
 
 // Create Left Line Stations
 const leftLineStations = groupLeftLineStation.selectAll('text').data(line.stations)
@@ -431,7 +437,7 @@ leftLineStations.enter().append('text')
         return scaleY(d.km) + d.offset
     })
     .attr('dy', 5)
-    .attr('dx', -135)
+    .attr('dx', 0)
 
 // Create Left Line Stations Altitude
 const scaleAltitudeX = d3.scaleLinear()
@@ -488,11 +494,11 @@ groupLeftLineStationAltitude.selectAll('text').data(line.stations)
         return scaleAltitudeX(d.km) + d.offset
     })
     .attr('y', d => {
-        return scaleAltitudeY(0)
+        return 50
     })
-    .attr('dx', 5)
-    .attr('dy', 5)
-    .attr('text-anchor', 'start')
+    .attr('dx', -1)
+    .attr('dy', 6)
+    .attr('text-anchor', 'end')
     .attr('transform', (d, i, sel) => {
         const cx = d3.select(sel[i]).attr('x')
         const cy = d3.select(sel[i]).attr('y')
