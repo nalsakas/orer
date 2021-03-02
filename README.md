@@ -1,2 +1,2 @@
 # orer
-Tren ORER grafiklerinin web svg ortamında çizilebilirliğini göstermektedir.
+Tren ORER grafiklerinin D3.js ile html - svg ortamında çizilebilirliğini göstermektedir.
