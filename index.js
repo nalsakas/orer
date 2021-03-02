@@ -137,143 +137,202 @@ const lineData = [{
 
 // orer tablosu
 const orerData = [{
-    id: "63021", // orer id
-    version: 1,
-    trainType: "Yük",
-    validFrom: "2021-01-01",
-    validTo: "2021-02-01",
-    stations: [{
-            lineId: "Mersin Adana",
-            stationId: "Adana",
-            maxSpeed: "70",
-            arrival: "",
-            departure: "00:20",
-            meets: "",
-            overtake: "",
-            km: 67148
-        },
-        {
-            lineId: "Mersin Adana",
-            stationId: "Şehitlik",
-            maxSpeed: "30",
-            arrival: "",
-            departure: "00:28",
-            meets: "",
-            overtake: "",
-            km: 60244
-        },
-        {
-            lineId: "Mersin Adana",
-            stationId: "Zeytinli",
-            maxSpeed: "70",
-            arrival: "",
-            departure: "00:37",
-            meets: "",
-            overtake: "",
-            km: 51121
-        },
-        {
-            lineId: "Mersin Adana",
-            stationId: "Yenice",
-            maxSpeed: "70",
-            arrival: "00:45",
-            departure: "01:05",
-            meets: "",
-            overtake: "",
-            km: 43209
-        },
-        {
-            lineId: "Mersin Adana",
-            stationId: "Yenice Müselles",
-            maxSpeed: "70",
-            arrival: "",
-            departure: "01:07",
-            meets: "",
-            overtake: "",
-            km: 41537
-        },
-        {
-            lineId: "Mersin Adana",
-            stationId: "Km.41+516",
-            maxSpeed: "70",
-            arrival: "",
-            departure: "01:09",
-            meets: "",
-            overtake: "",
-            km: 41516
-        },
-        {
-            lineId: "Mersin Adana",
-            stationId: "Tarsus",
-            maxSpeed: "70",
-            arrival: "",
-            departure: "01:26",
-            meets: "",
-            overtake: "",
-            km: 26222
-        },
-        {
-            lineId: "Mersin Adana",
-            stationId: "Huzurkent",
-            maxSpeed: "70",
-            arrival: "",
-            departure: "01:35",
-            meets: "",
-            overtake: "",
-            km: 19034
-        },
-        {
-            lineId: "Mersin Adana",
-            stationId: "Taşkent",
-            maxSpeed: "70",
-            arrival: "01:42",
-            departure: "02:02",
-            meets: "",
-            overtake: "",
-            km: 14113
-        },
-        {
-            lineId: "Mersin Adana",
-            stationId: "Karacailyas",
-            maxSpeed: "70",
-            arrival: "",
-            departure: "02:11",
-            meets: "",
-            overtake: "",
-            km: 8290,
-        },
-        {
-            lineId: "Mersin Adana",
-            stationId: "Tırmıl",
-            maxSpeed: "70",
-            arrival: "02:15",
-            departure: "02:45",
-            meets: "",
-            overtake: "",
-            km: 5954,
-        },
-        {
-            lineId: "Mersin Adana",
-            stationId: "Km.3+500",
-            maxSpeed: "70",
-            arrival: "",
-            departure: "02:50",
-            meets: "",
-            overtake: "",
-            km: 3500
-        },
-        { //
-            lineId: "Mersin Adana",
-            stationId: "Mersin",
-            maxSpeed: "40",
-            arrival: "02:55",
-            departure: "",
-            meets: "",
-            overtakes: "",
-            km: 0
-        }
-    ]
-}]
+        id: "63021", // orer id
+        version: 1,
+        trainType: "Yük",
+        validFrom: "2021-01-01",
+        validTo: "2021-02-01",
+        stations: [{
+                lineId: "Mersin Adana",
+                stationId: "Adana",
+                maxSpeed: "70",
+                arrival: "",
+                departure: "00:20",
+                meets: "",
+                overtake: "",
+                km: 67148
+            },
+            {
+                lineId: "Mersin Adana",
+                stationId: "Şehitlik",
+                maxSpeed: "30",
+                arrival: "00:27",
+                departure: "00:28",
+                meets: "",
+                overtake: "",
+                km: 60244
+            },
+            {
+                lineId: "Mersin Adana",
+                stationId: "Zeytinli",
+                maxSpeed: "70",
+                arrival: "00:36",
+                departure: "00:37",
+                meets: "",
+                overtake: "",
+                km: 51121
+            },
+            {
+                lineId: "Mersin Adana",
+                stationId: "Yenice",
+                maxSpeed: "70",
+                arrival: "00:45",
+                departure: "01:05",
+                meets: "",
+                overtake: "",
+                km: 43209
+            },
+            {
+                lineId: "Mersin Adana",
+                stationId: "Yenice Müselles",
+                maxSpeed: "70",
+                arrival: "",
+                departure: "01:07",
+                meets: "",
+                overtake: "",
+                km: 41537
+            },
+            {
+                lineId: "Mersin Adana",
+                stationId: "Km.41+516",
+                maxSpeed: "70",
+                arrival: "",
+                departure: "01:09",
+                meets: "",
+                overtake: "",
+                km: 41516
+            },
+            {
+                lineId: "Mersin Adana",
+                stationId: "Tarsus",
+                maxSpeed: "70",
+                arrival: "",
+                departure: "01:26",
+                meets: "",
+                overtake: "",
+                km: 26222
+            },
+            {
+                lineId: "Mersin Adana",
+                stationId: "Huzurkent",
+                maxSpeed: "70",
+                arrival: "",
+                departure: "01:35",
+                meets: "",
+                overtake: "",
+                km: 19034
+            },
+            {
+                lineId: "Mersin Adana",
+                stationId: "Taşkent",
+                maxSpeed: "70",
+                arrival: "01:42",
+                departure: "02:02",
+                meets: "",
+                overtake: "",
+                km: 14113
+            },
+            {
+                lineId: "Mersin Adana",
+                stationId: "Karacailyas",
+                maxSpeed: "70",
+                arrival: "",
+                departure: "02:11",
+                meets: "",
+                overtake: "",
+                km: 8290,
+            },
+            {
+                lineId: "Mersin Adana",
+                stationId: "Tırmıl",
+                maxSpeed: "70",
+                arrival: "02:15",
+                departure: "02:45",
+                meets: "",
+                overtake: "",
+                km: 5954,
+            },
+            {
+                lineId: "Mersin Adana",
+                stationId: "Km.3+500",
+                maxSpeed: "70",
+                arrival: "",
+                departure: "02:50",
+                meets: "",
+                overtake: "",
+                km: 3500
+            },
+            { //
+                lineId: "Mersin Adana",
+                stationId: "Mersin",
+                maxSpeed: "40",
+                arrival: "02:55",
+                departure: "",
+                meets: "",
+                overtakes: "",
+                km: 0
+            }
+        ]
+    },
+    {
+        id: "63022", // orer id
+        version: 1,
+        trainType: "Yük",
+        validFrom: "2021-01-01",
+        validTo: "2021-02-01",
+        stations: [{
+                lineId: "Mersin Adana",
+                stationId: "Mersin",
+                maxSpeed: "70",
+                arrival: "",
+                departure: "03:15",
+                meets: "",
+                overtake: "",
+                km: 0
+            },
+            {
+                lineId: "Mersin Adana",
+                stationId: "Tırmıl",
+                maxSpeed: "30",
+                arrival: "03:27",
+                departure: "03:57",
+                meets: "",
+                overtake: "",
+                km: 5954
+            },
+            {
+                lineId: "Mersin Adana",
+                stationId: "Taşkent",
+                maxSpeed: "30",
+                arrival: "04:11",
+                departure: "04:31",
+                meets: "",
+                overtake: "",
+                km: 14113
+            },
+            {
+                lineId: "Mersin Adana",
+                stationId: "Tarsus",
+                maxSpeed: "30",
+                arrival: "04:47",
+                departure: "04:47",
+                meets: "",
+                overtake: "",
+                km: 26222
+            },
+            {
+                lineId: "Mersin Adana",
+                stationId: "Adana",
+                maxSpeed: "30",
+                arrival: "05:56",
+                departure: "",
+                meets: "",
+                overtake: "",
+                km: 67148
+            },
+        ]
+    }
+]
 
 // Create svg element
 const margin = {
@@ -288,6 +347,12 @@ const totalWidth = 1800
 const totalHeight = totalWidth * proportion
 const width = totalWidth - margin.left - margin.right
 const height = totalHeight - margin.top - margin.bottom
+
+const altitudeLeftPos = 90
+const lineStationSchemaLeftPos = 100
+const lineStationsLeftPos = 230
+const lineKmBetweenLeftPos = 300
+const lineKmLeftPos = 370
 
 const line = lineData.find(l => l.id == "Mersin Adana")
 
@@ -312,12 +377,34 @@ const groupTopLabel = svg.append('g').attr('class', 'topLabel').attr('transform'
 const groupBottomLabel = svg.append('g').attr('class', 'bottomLabel').attr('transform', `translate(${margin.left}, ${margin.top})`)
 const groupRightLabel = svg.append('g').attr('class', 'rightLabel').attr('transform', `translate(${margin.left}, ${margin.top})`)
 const groupLeftLabel = svg.append('g').attr('class', 'rightLabel').attr('transform', `translate(${margin.left}, ${margin.top})`)
-const groupLeftLineKm = svg.append('g').attr('class', 'leftLineKm').attr('transform', `translate(${margin.left}, ${margin.top})`)
-const groupLeftLineKmBetween = svg.append('g').attr('class', 'leftLineKmBetween').attr('transform', `translate(${margin.left}, ${margin.top})`)
-const groupLeftLineStation = svg.append('g').attr('class', 'leftLineStation').attr('transform', `translate(${margin.left}, ${margin.top})`)
-const groupLeftLineStationSchema = svg.append('g').attr('class', 'leftLineStationSchema').attr('transform', `translate(${margin.left}, ${margin.top})`)
-const groupLeftLineStationAltitude = svg.append('g').attr('class', 'leftLineStationAltitude').attr('transform', `translate(${margin.left -300}, ${margin.top}) rotate(90)`)
+const groupLeftLineKm = svg.append('g').attr('class', 'leftLineKm').attr('transform', `translate(${lineKmLeftPos}, ${margin.top})`)
+const groupLeftLineKmBetween = svg.append('g').attr('class', 'leftLineKmBetween').attr('transform', `translate(${lineKmBetweenLeftPos}, ${margin.top})`)
+const groupLeftLineStation = svg.append('g').attr('class', 'leftLineStation').attr('transform', `translate(${lineStationsLeftPos}, ${margin.top})`)
+const groupLeftLineStationSchema = svg.append('g').attr('class', 'leftLineStationSchema').attr('transform', `translate(${lineStationSchemaLeftPos}, ${margin.top})`)
+const groupLeftLineStationAltitude = svg.append('g').attr('class', 'leftLineStationAltitude').attr('transform', `translate(${altitudeLeftPos}, ${margin.top}) rotate(90)`)
 const group = svg.append('g').attr('transform', `translate(${margin.left}, ${margin.top})`)
+
+// Company Header
+svg.append('text').html(
+        `<tspan x = 20 dy = 1.2em>T.C.</tspan>` +
+        `<tspan x = 20 dy = 1.2em>Devlet Demiryolları İşletmesi</tspan>` +
+        `<tspan x = 20 dy = 1.2em>Genel Müdürlüğü</tspan>`
+    )
+    .attr('x', 20)
+    .attr('y', 10)
+    .attr('font-weight', 800)
+    .attr('font-size', 16)
+
+// Line Header
+svg.append('text').html(
+        `<tspan x = ${totalWidth / 2} dy = 1.2em>${line.id} Hat Kesimi</tspan>` +
+        `<tspan x = ${totalWidth / 2} dy = 1.2em></tspan>`
+    )
+    .attr('x', totalWidth / 2)
+    .attr('y', 10)
+    .attr('text-anchor', 'start')
+    .attr('font-weight', 800)
+    .attr('font-size', 16)
 
 // Create GridX
 const dataDomainX = d3.range(0, 24 * 60, 10)
@@ -399,7 +486,7 @@ leftLineKms.enter().append('text')
         return scaleY(d.km) + d.offset
     })
     .attr('dy', 5)
-    .attr('dx', -15)
+    .attr('dx', 0)
 
 // Create Left Line kms between
 const leftLineKmsBetween = groupLeftLineKmBetween.selectAll('text').data(line.stations)
@@ -417,7 +504,7 @@ leftLineKmsBetween.enter().append('text')
         }
     })
     .attr('dy', 5)
-    .attr('dx', -75)
+    .attr('dx', 0)
 
 // Create Left Line Stations
 const leftLineStations = groupLeftLineStation.selectAll('text').data(line.stations)
@@ -431,7 +518,8 @@ leftLineStations.enter().append('text')
         return scaleY(d.km) + d.offset
     })
     .attr('dy', 5)
-    .attr('dx', -135)
+    .attr('dx', 0)
+    .attr('font-weight', 800)
 
 // Create Left Line Stations Altitude
 const scaleAltitudeX = d3.scaleLinear()
@@ -488,11 +576,11 @@ groupLeftLineStationAltitude.selectAll('text').data(line.stations)
         return scaleAltitudeX(d.km) + d.offset
     })
     .attr('y', d => {
-        return scaleAltitudeY(0)
+        return 50
     })
-    .attr('dx', 5)
-    .attr('dy', 5)
-    .attr('text-anchor', 'start')
+    .attr('dx', -1)
+    .attr('dy', 6)
+    .attr('text-anchor', 'end')
     .attr('transform', (d, i, sel) => {
         const cx = d3.select(sel[i]).attr('x')
         const cy = d3.select(sel[i]).attr('y')
@@ -506,12 +594,171 @@ groupLeftLineStationAltitude.selectAll('text').data(line.stations)
 const lines = group.selectAll('path').data(orerData)
 lines.enter().append('path')
     .attr('d', generate)
+    .attr('id', d => d.id)
     .attr('fill', 'none')
     .attr('stroke', 'black')
     .attr('stroke-width', 3)
     .attr('stroke-linecap', 'butt')
     .attr('stroke-linejoin', 'round')
-lines.attr('d', generate)
+
+// TrainId First
+// Put trainId between first and second stations
+const textTrainIdFirst = group.selectAll('text.trainIdFirst').data(orerData)
+textTrainIdFirst.enter()
+    .append('text')
+    .attr('dx', 0)
+    .attr('dy', -2)
+    .append('textPath')
+    .text(d => d.id)
+    .attr('href', d => `#${d.id}`)
+    .attr('startOffset', '1%')
+    .attr('class', 'trainIdFirst')
+    .call(d3.drag().on('start', function (e, d) {}).on('drag', function (e, d) {
+        if (d.stations[1].km - d.stations[0].km > 0) {
+            d3.select(this).attr('startOffset', e.y)
+        } else {
+            d3.select(this).attr('startOffset', height - e.y)
+        }
+    }))
+/*
+.attr('x', d => {
+    const first = d.stations[0]
+    const second = d.stations[1]
+
+    const departure = first.departure.split(':')
+    const firstX = scaleX(new Date(2000, 0, 1, +departure[0], +departure[1]))
+    const arrival = second.arrival.split(':')
+    const secondX = scaleX(new Date(2000, 0, 1, +arrival[0], +arrival[1]))
+    return (firstX + secondX) / 2
+})
+.attr('y', d => {
+    const first = d.stations[0]
+    const second = d.stations[1]
+    let firstY = 0
+    let secondY = 0
+
+    let lineStation = line.stations.find(s => s.stationId == first.stationId)
+    if (lineStation) {
+        firstY = scaleY(first.km) + lineStation.offset
+    }
+
+    lineStation = line.stations.find(s => s.stationId == second.stationId)
+    if (lineStation) {
+        secondY = scaleY(second.km) + lineStation.offset
+    }
+
+    return (firstY + secondY) / 2
+})
+*/
+
+// TrainId Last
+// put trainId before last station
+const textTrainIdLast = group.selectAll('text.trainIdLast').data(orerData)
+textTrainIdLast.enter()
+    .append('text')
+    .attr('dx', 0)
+    .attr('dy', -2)
+    .append('textPath')
+    .text(d => d.id)
+    .attr('href', d => `#${d.id}`)
+    .attr('startOffset', '95%')
+    .attr('class', 'trainIdLast')
+    .call(d3.drag().on('start', function (e, d) {}).on('drag', function (e, d) {
+        if (d.stations[1].km - d.stations[0].km > 0) {
+            d3.select(this).attr('startOffset', e.y)
+        } else {
+            d3.select(this).attr('startOffset', height - e.y)
+        }
+    }))
+/*
+.attr('x', d => {
+    const first = d.stations[d.stations.length - 2]
+    const second = d.stations[d.stations.length - 1]
+
+    const departure = first.departure.split(':')
+    const firstX = scaleX(new Date(2000, 0, 1, +departure[0], +departure[1]))
+    const arrival = second.arrival.split(':')
+    const secondX = scaleX(new Date(2000, 0, 1, +arrival[0], +arrival[1]))
+    return (firstX + secondX) / 2
+})
+.attr('y', d => {
+    const first = d.stations[d.stations.length - 2]
+    const second = d.stations[d.stations.length - 1]
+    let firstY = 0
+    let secondY = 0
+
+    let lineStation = line.stations.find(s => s.stationId == first.stationId)
+    if (lineStation) {
+        firstY = scaleY(first.km) + lineStation.offset
+    }
+
+    lineStation = line.stations.find(s => s.stationId == second.stationId)
+    if (lineStation) {
+        secondY = scaleY(second.km) + lineStation.offset
+    }
+
+    return (firstY + secondY) / 2
+})
+*/
+
+// Put circles around stations on path 
+const circleGroup = group.selectAll('g.circles').data(orerData)
+const circles = circleGroup.enter().append('g').attr('class', 'circles')
+circles.selectAll('circle').data(d => d.stations)
+    .enter().append('circle')
+    .attr('cx', d => {
+        let x = 0
+        if (d.departure) {
+            const departure = d.departure.split(':')
+            x = scaleX(new Date(2000, 0, 1, +departure[0], +departure[1]))
+        } else if (d.arrival) {
+            const arrival = d.arrival.split(':')
+            x = scaleX(new Date(2000, 0, 1, +arrival[0], +arrival[1]))
+        }
+        return x
+    })
+    .attr('cy', d => {
+        let y = 0
+        const lineStation = line.stations.find(s => s.stationId == d.stationId)
+        if (lineStation) {
+            y = scaleY(d.km) + lineStation.offset
+
+        }
+        return y
+    })
+    .attr('r', 4)
+    .attr('fill', 'none')
+    .attr('stroke-width', 1)
+    .attr('stroke', 'red')
+
+// Put minutes around stations on path 
+const minutesGroup = group.selectAll('g.minutes').data(orerData)
+const minutes = minutesGroup.enter().append('g').attr('class', 'minutes')
+minutes.selectAll('text').data(d => d.stations)
+    .enter().append('text')
+    .text(d => {
+        const departure = d.departure.split(':')
+        return departure[1]
+    })
+    .attr('x', d => {
+        const departure = d.departure.split(':')
+        const x = scaleX(new Date(2000, 0, 1, +departure[0], +departure[1]))
+        return x
+    })
+    .attr('y', d => {
+        const lineStation = line.stations.find(s => s.stationId == d.stationId)
+        if (lineStation) {
+            const y = scaleY(d.km) + lineStation.offset
+            return y
+        } else {
+            return 0
+        }
+    })
+    .attr('dx', 5)
+    .attr('dy', 4)
+    .attr('text-anchor', 'start')
+    .attr('font-size', 10)
+    .attr('font-weight', 400)
 
 function generate(d, i) {
     const path = d3.path()
